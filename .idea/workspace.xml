@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccd98f83-b28e-4121-8cab-689f84d42554" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/psi/pizza/menu/ItalianPiePizzaMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/psi/pizza/model/ItalianPiePizza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/psi/pizza/guifx/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/psi/pizza/guifx/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/psi/pizza/model/AmericanPiePizzaMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/psi/pizza/model/AmericanPiePizza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/psi/pizza/model/ItalianPiePizzaMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
