@@ -1,1 +1,4 @@
-target .idea *.iml *.jar
+target/
+.idea
+*.iml
+*.jar
