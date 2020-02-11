@@ -6,12 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
-import pl.psi.pizza.menu.ItalianPiePizzaMenu;
-import pl.psi.pizza.model.AmericanPiePizza;
-import pl.psi.pizza.model.ItalianPiePizza;
-
-import java.util.ArrayList;
-import java.util.List;
+import pl.psi.pizza.menu.PizzaPieMenu;
+import pl.psi.pizza.model.PizzaPie;
 
 public class MainController {
 
@@ -35,14 +31,14 @@ public class MainController {
         centerBox.getChildren().clear();
         String selectedRationText = ((RadioButton) pieGroup.getSelectedToggle()).getText();
         if ("Na cienkim".equals(selectedRationText)) {
-            ItalianPiePizzaMenu italianMenu = new ItalianPiePizzaMenu();
-            for (ItalianPiePizza pizza: italianMenu.getPizzasList() ) {
-                centerBox.getChildren().add(new PizzaEntry(pizza.getName()));
+            PizzaPieMenu italianMenu = new PizzaPieMenu();
+            for (PizzaPie pizza: italianMenu.getItalianPizzasList() ) {
+                centerBox.getChildren().add(new PizzaEntry(pizza.getName() + " " + pizza.getPrice()));
             }
         } else if ("Na grubym".equals(selectedRationText)) {
-            AmericanPiePizza americanMenu = new AmericanPiePizza();
-            for (String pizza: americanMenu.getPizzasList() ) {
-                centerBox.getChildren().add(new PizzaEntry(pizza));
+            PizzaPieMenu americanMenu = new PizzaPieMenu();
+            for (PizzaPie pizza: americanMenu.getAmericanPizzasList() ) {
+                centerBox.getChildren().add(new PizzaEntry(pizza.getName() + " " + pizza.getPrice()));
             }
         }
     }
