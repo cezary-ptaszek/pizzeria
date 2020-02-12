@@ -1,16 +1,33 @@
 package pl.psi.pizza.guifx;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.layout.HBox;
 
-public class PizzaEntry extends HBox {
+import java.math.BigDecimal;
+import java.util.ArrayList;
 
-    Button addToOrderButton;
+public class PizzaEntry extends HBox{
 
-    public PizzaEntry(String aText) {
-        getChildren().add(new Label(aText));
-        addToOrderButton = new Button("+");
-        getChildren().add(addToOrderButton);
+    BigDecimal prize;
+
+    public PizzaEntry(String aText, BigDecimal prize) {
+        this.prize = prize;
+
+        MainController.lButtons = new ArrayList<>();
+        RadioButton button = new RadioButton(aText + " " + prize);
+        button.setToggleGroup(MainController.group);
+        if(!MainController.isChecked){
+            button.setSelected(true);
+            MainController.isChecked = true;
+        }
+        getChildren().add(button);
+    }
+
+    private void addToPrice(){
+        MainController.totalSum = MainController.totalSum.add(prize);
+    }
+
+    private void subtractFromPrice() {
+        MainController.totalSum = MainController.totalSum.subtract(prize);
     }
 }

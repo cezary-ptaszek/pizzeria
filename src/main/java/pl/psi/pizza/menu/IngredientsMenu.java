@@ -9,7 +9,6 @@ import java.util.List;
 public class IngredientsMenu {
     public List<Ingredient> getIngredientsList() {
         ArrayList<Ingredient> ingredients = new ArrayList<>();
-
         ingredients.add(new Ingredient("papryka", new BigDecimal("0.80")));
         ingredients.add(new Ingredient("czosnek", new BigDecimal("0.90")));
         ingredients.add(new Ingredient("pieczarki", new BigDecimal("1.10")));
