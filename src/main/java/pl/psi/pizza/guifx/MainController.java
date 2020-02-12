@@ -1,7 +1,5 @@
 package pl.psi.pizza.guifx;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
@@ -22,6 +20,8 @@ public class MainController {
     public static ArrayList<RadioButton> lButtons;
     public static Boolean isChecked;
 
+    @FXML
+    private VBox isStudentBox;
     @FXML
     private VBox pizzaBox;
     @FXML
@@ -72,16 +72,6 @@ public class MainController {
                 pizzaBox.getChildren().add(new PizzaEntry(pizza.getName(), pizza.getPrice()));
             }
         }
-
-        group.selectedToggleProperty().addListener(new ChangeListener<Toggle>()
-        {
-            public void changed(ObservableValue<? extends Toggle> ob, Toggle o, Toggle n)
-            {
-                if (group.getSelectedToggle() != null) {
-
-                }
-            }
-        });
     }
 
     private void ingredientsMenu(){
@@ -93,7 +83,10 @@ public class MainController {
 
     @FXML
     private void addPizzaButtonAction(){
-
+        BigDecimal price = new BigDecimal("0.0");
+        RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
+        System.out.println(selectedRadioButton.getText());
+        setTotalPrize(price);
     }
 
     @FXML

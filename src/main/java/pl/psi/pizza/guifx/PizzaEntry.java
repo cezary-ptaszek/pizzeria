@@ -23,11 +23,4 @@ public class PizzaEntry extends HBox{
         getChildren().add(button);
     }
 
-    private void addToPrice(){
-        MainController.totalSum = MainController.totalSum.add(prize);
-    }
-
-    private void subtractFromPrice() {
-        MainController.totalSum = MainController.totalSum.subtract(prize);
-    }
 }

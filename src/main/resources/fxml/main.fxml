@@ -16,11 +16,6 @@
                                 <Font size="30.0" />
                             </font>
                         </Label>
-                        <Label fx:id="totalPrice">
-                            <font>
-                                <Font size="30.0" />
-                            </font>
-                        </Label>
                     </children>
                 </HBox>
                 <HBox prefHeight="31.0" prefWidth="800.0">
@@ -42,7 +37,8 @@
                                 <fx:reference source="pieGroup" />
                             </toggleGroup>
                         </RadioButton>
-                        <Label text="Dodatki:" />
+                        <Label prefHeight="17.0" prefWidth="324.0" text="Dodatki:" />
+                        <Label text="Twoje zamówienie: " />
                     </children>
                 </HBox>
             </children>
@@ -52,11 +48,11 @@
     <center>
         <VBox BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="250.0" prefWidth="800.0">
+            <HBox prefHeight="270.0" prefWidth="800.0">
                <children>
                   <VBox fx:id="pizzaBox" prefHeight="250.0" prefWidth="213.0" />
                   <VBox fx:id="ingredientsBox" prefHeight="250.0" prefWidth="139.0" />
-                  <VBox prefHeight="250.0" prefWidth="135.0">
+                  <VBox prefHeight="250.0" prefWidth="149.0">
                      <children>
                         <Pane prefHeight="69.0" prefWidth="100.0" />
                         <HBox prefHeight="59.0" prefWidth="100.0">
@@ -71,6 +67,34 @@
                         </HBox>
                      </children>
                   </VBox>
+                  <VBox fx:id="orderedPizzaBox" prefHeight="250.0" prefWidth="293.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="320.0">
+               <children>
+                  <Pane prefHeight="34.0" prefWidth="33.0" />
+                  <Label prefHeight="35.0" prefWidth="305.0" text="Wybierz swoją dzielnice do dostawy:" />
+                  <Label prefHeight="35.0" prefWidth="193.0" text="Czy jesteś studentem?" />
+                  <Label prefHeight="37.0" prefWidth="179.0" text="W sumie:">
+                      <font>
+                          <Font size="15.0" />
+                      </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="149.0" prefWidth="800.0">
+               <children>
+                  <VBox fx:id="chooseDeliveryBox" prefHeight="151.0" prefWidth="320.0" />
+                  <VBox fx:id="isStudentBox" prefHeight="149.0" prefWidth="215.0" />
+                  <VBox prefHeight="149.0" prefWidth="264.0">
+                     <children>
+                        <Label fx:id="totalPrice" prefHeight="68.0" prefWidth="185.0" text="0.00 zł">
+                            <font>
+                                <Font size="30.0" />
+                            </font>
+                         </Label>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
          </children>
@@ -78,9 +102,9 @@
     </center>
 
     <bottom>
-        <HBox alignment="TOP_RIGHT" prefHeight="1.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <HBox alignment="TOP_RIGHT" prefHeight="39.0" prefWidth="800.0" BorderPane.alignment="CENTER">
             <children>
-                <Button mnemonicParsing="false" onAction="#confirmOrderAction" prefHeight="37.0" prefWidth="115.0" text="ZAMÓW" textAlignment="CENTER">
+                <Button mnemonicParsing="false" onAction="#confirmOrderAction" prefHeight="37.0" prefWidth="149.0" text="ZAMÓW" textAlignment="CENTER">
                     <font>
                         <Font size="16.0" />
                     </font>
