@@ -4,7 +4,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.layout.HBox;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
+
+import static pl.psi.pizza.guifx.MainController.group;
+import static pl.psi.pizza.guifx.MainController.isChecked;
 
 public class PizzaEntry extends HBox{
 
@@ -13,12 +15,11 @@ public class PizzaEntry extends HBox{
     public PizzaEntry(String aText, BigDecimal prize) {
         this.prize = prize;
 
-        MainController.lButtons = new ArrayList<>();
         RadioButton button = new RadioButton(aText + " " + prize);
-        button.setToggleGroup(MainController.group);
-        if(!MainController.isChecked){
+        button.setToggleGroup(group);
+        if(!isChecked){
             button.setSelected(true);
-            MainController.isChecked = true;
+            isChecked = true;
         }
         getChildren().add(button);
     }

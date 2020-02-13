@@ -11,15 +11,21 @@ import pl.psi.pizza.model.Ingredient;
 import pl.psi.pizza.model.PizzaPie;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainController {
 
     public static BigDecimal totalSum;
     public static ToggleGroup group;
-    public static ArrayList<RadioButton> lButtons;
     public static Boolean isChecked;
+    public static String ingredients;
+    public static BigDecimal ingredientsSum;
+    private Integer num;
+    private TextArea textArea;
 
+    @FXML
+    private ScrollPane scrollPaneBox;
     @FXML
     private VBox isStudentBox;
     @FXML
@@ -39,21 +45,24 @@ public class MainController {
     private void initialize() {
         totalSum = new BigDecimal("0");
         group = new ToggleGroup();
-        lButtons = new ArrayList<>();
+        num = 1;
+        ingredients = "";
+        ingredientsSum = new BigDecimal("0.0");
+        textArea = new TextArea();
+        textArea.setEditable(false);
 
         addPizzaButton.setText("DODAJ DO\n ZAMÓWIENIA");
         addPizzaButton.textAlignmentProperty().set(TextAlignment.CENTER);
 
         orderPriceLabel.setText("Witaj, wybierz to na co masz ochote! ");
         orderPriceLabel.setPadding(new Insets(10, 10, 10, 20));
-        pieGroup.selectedToggleProperty().addListener( (e) -> refreshMenu());
+        pieGroup.selectedToggleProperty().addListener( (e) -> refreshPizzaMenu());
         ingredientsMenu();
-        refreshMenu();
+        refreshPizzaMenu();
     }
 
-    private void refreshMenu(){
+    private void refreshPizzaMenu(){
         pizzaBox.getChildren().clear();
-        lButtons.clear();
         group.selectToggle(null);
 
         pizzaBox.setPadding(new Insets(10, 10, 10, 10));
@@ -83,10 +92,25 @@ public class MainController {
 
     @FXML
     private void addPizzaButtonAction(){
-        BigDecimal price = new BigDecimal("0.0");
-        RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
-        System.out.println(selectedRadioButton.getText());
-        setTotalPrize(price);
+        String selectedRadioButton = ((RadioButton) group.getSelectedToggle()).getText();
+
+        Pattern patternPrice = Pattern.compile("\\d\\d\\.\\d\\d");
+        Matcher matcherPrice = patternPrice.matcher(selectedRadioButton);
+        BigDecimal price = new BigDecimal("0");
+        if (matcherPrice.find()) {
+            price = new BigDecimal(matcherPrice.group(0));
+            totalSum = totalSum.add(price);
+        }
+        totalSum = totalSum.add(ingredientsSum);
+
+        Pattern patternPizza = Pattern.compile("[A-Z]+\\s?[A-Z]+");
+        Matcher matcherPizza = patternPizza.matcher(selectedRadioButton);
+        if (matcherPizza.find()){
+            addToScrollPaneBox(matcherPizza.group(0), price, ingredients);
+        }
+
+        setTotalPrize();
+        new MaybeNextPizzaStage();
     }
 
     @FXML
@@ -94,7 +118,21 @@ public class MainController {
     }
 
     @FXML
-    public void setTotalPrize(BigDecimal price){
-        totalPrice.setText(price + "zł");
+    private void setTotalPrize(){
+        totalPrice.setText(totalSum + "zł");
+    }
+
+    private void addToScrollPaneBox(String pizza, BigDecimal priceOfPizza, String ingr){
+        String string = num.toString();
+
+        if(ingr.equals(""))
+            string += (". " + pizza + "\t" + priceOfPizza + "zł\n");
+        else
+            string += (". " + pizza + "\t" + priceOfPizza + "zł\n\t" + ingr + "\t" + ingredientsSum + "zł\n");
+
+        textArea.appendText(string);
+        scrollPaneBox.setContent(textArea);
+
+        num++;
     }
 }
