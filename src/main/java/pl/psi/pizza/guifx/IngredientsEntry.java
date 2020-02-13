@@ -18,7 +18,7 @@ public class IngredientsEntry extends VBox{
     public IngredientsEntry(String Text, BigDecimal prize) {
         this.prize = prize;
 
-        checkBox = new CheckBox(Text + " " + prize);
+        checkBox = new CheckBox(Text + " " + prize+ "zł");
 
         EventHandler<ActionEvent> event = e -> {
             if (checkBox.isSelected()){

@@ -2,7 +2,6 @@ package pl.psi.pizza.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class PizzaPie {
     private String name;

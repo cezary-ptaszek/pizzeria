@@ -20,7 +20,8 @@
                 </HBox>
                 <HBox prefHeight="31.0" prefWidth="800.0">
                     <children>
-                        <RadioButton fx:id="italianRadio" selected="true" text="Na cienkim">
+                  <Pane prefHeight="31.0" prefWidth="9.0" />
+                        <RadioButton selected="true" text="Na cienkim">
                             <HBox.margin>
                                 <Insets right="3.0" />
                             </HBox.margin>
@@ -28,7 +29,7 @@
                                 <ToggleGroup fx:id="pieGroup" />
                             </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="americanRadio" prefHeight="17.0" prefWidth="134.0" text="Na grubym">
+                        <RadioButton prefHeight="17.0" prefWidth="134.0" text="Na grubym">
                             <HBox.margin>
                                 <Insets right="30.0" />
                                 <Insets bottom="10.0" />
@@ -50,9 +51,12 @@
          <children>
             <HBox prefHeight="270.0" prefWidth="800.0">
                <children>
-                  <VBox fx:id="pizzaBox" prefHeight="250.0" prefWidth="213.0" />
-                  <VBox fx:id="ingredientsBox" prefHeight="250.0" prefWidth="139.0" />
-                  <VBox prefHeight="250.0" prefWidth="149.0">
+                  <VBox fx:id="pizzaBox" prefHeight="270.0" prefWidth="202.0" />
+                  <VBox fx:id="ingredientsBox" prefHeight="270.0" prefWidth="152.0">
+                     <children>
+                        <Separator prefWidth="200.0" />
+                     </children></VBox>
+                  <VBox prefHeight="270.0" prefWidth="144.0">
                      <children>
                         <Pane prefHeight="69.0" prefWidth="100.0" />
                         <HBox prefHeight="59.0" prefWidth="100.0">
@@ -67,13 +71,19 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox fx:id="orderedPizzaBox" prefHeight="250.0" prefWidth="293.0">
+                  <VBox prefHeight="250.0" prefWidth="293.0">
                      <children>
-                        <ScrollPane fx:id="scrollPaneBox" prefHeight="268.0" prefWidth="293.0">
+                        <ScrollPane fx:id="scrollPaneBox" prefHeight="279.0" prefWidth="293.0">
                           <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="266.0" prefWidth="291.0" />
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="221.0" prefWidth="291.0" />
                           </content>
                         </ScrollPane>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Pane prefHeight="73.0" prefWidth="114.0" />
+                              <Button mnemonicParsing="false" onAction="#clearScrollPaneBox" prefHeight="32.0" prefWidth="69.0" text="WYCZYŚĆ" />
+                           </children>
+                        </HBox>
                      </children></VBox>
                </children>
             </HBox>
@@ -91,11 +101,33 @@
             </HBox>
             <HBox prefHeight="149.0" prefWidth="800.0">
                <children>
-                  <VBox fx:id="chooseDeliveryBox" prefHeight="151.0" prefWidth="320.0" />
-                  <VBox fx:id="isStudentBox" prefHeight="149.0" prefWidth="215.0" />
+                  <Pane prefHeight="149.0" prefWidth="30.0" />
+                  <VBox fx:id="deliveryOptionsBox" prefHeight="149.0" prefWidth="324.0">
+                     <children>
+                        <Separator prefWidth="200.0" />
+                     </children></VBox>
+                  <VBox fx:id="isStudentBox" prefHeight="149.0" prefWidth="176.0">
+                     <children>
+                        <Separator prefWidth="200.0" />
+                        <Pane layoutX="10.0" layoutY="30.0" prefHeight="13.0" prefWidth="176.0" />
+                        <RadioButton mnemonicParsing="false" text="Tak">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="discountGroup" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <Pane prefHeight="13.0" prefWidth="176.0" />
+                        <RadioButton mnemonicParsing="false" selected="true" text="Nie">
+                            <toggleGroup>
+                                <fx:reference source="discountGroup" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <Pane layoutX="10.0" layoutY="43.0" prefHeight="13.0" prefWidth="176.0" />
+                        <Label fx:id="infoDiscount" prefHeight="55.0" prefWidth="176.0" />
+                     </children></VBox>
                   <VBox prefHeight="149.0" prefWidth="264.0">
                      <children>
-                        <Label fx:id="totalPrice" prefHeight="68.0" prefWidth="185.0" text="0.00 zł">
+                        <Separator prefWidth="200.0" />
+                        <Label fx:id="totalPrice" prefHeight="67.0" prefWidth="185.0" text="0.00 zł">
                             <font>
                                 <Font size="30.0" />
                             </font>

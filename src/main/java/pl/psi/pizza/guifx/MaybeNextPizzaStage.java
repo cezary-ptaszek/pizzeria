@@ -1,7 +1,5 @@
 package pl.psi.pizza.guifx;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -13,16 +11,16 @@ import javafx.stage.Stage;
 
 public class MaybeNextPizzaStage {
 
-    private Button button;
-
     public MaybeNextPizzaStage(){
         Stage dialogStage = new Stage();
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.setTitle("Info");
-        button = new Button("OK");
+        dialogStage.setWidth(220);
+
+        Button button = new Button("OK");
         button.setOnAction(arg0 -> dialogStage.close());
 
-        VBox vbox = new VBox(new Text("Może chcesz jeszcze jedną?\n"), button);
+        VBox vbox = new VBox(new Text("Może jeszcze jedną?\n"), button);
         vbox.setAlignment(Pos.CENTER);
         vbox.setPadding(new Insets(15));
 

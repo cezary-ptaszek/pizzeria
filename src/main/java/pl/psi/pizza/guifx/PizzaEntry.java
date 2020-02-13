@@ -5,8 +5,8 @@ import javafx.scene.layout.HBox;
 
 import java.math.BigDecimal;
 
-import static pl.psi.pizza.guifx.MainController.group;
-import static pl.psi.pizza.guifx.MainController.isChecked;
+import static pl.psi.pizza.guifx.MainController.pizzaGroup;
+import static pl.psi.pizza.guifx.MainController.isCheckedPizza;
 
 public class PizzaEntry extends HBox{
 
@@ -15,11 +15,11 @@ public class PizzaEntry extends HBox{
     public PizzaEntry(String aText, BigDecimal prize) {
         this.prize = prize;
 
-        RadioButton button = new RadioButton(aText + " " + prize);
-        button.setToggleGroup(group);
-        if(!isChecked){
+        RadioButton button = new RadioButton(aText + " " + prize+ "zł");
+        button.setToggleGroup(pizzaGroup);
+        if(!isCheckedPizza){
             button.setSelected(true);
-            isChecked = true;
+            isCheckedPizza = true;
         }
         getChildren().add(button);
     }
