@@ -22,7 +22,7 @@ public class OrderPizzaStage {
         Button button = new Button("OK");
         button.setOnAction(arg0 -> dialogStage.close());
 
-        VBox vbox = new VBox(new Text("Zamówienie zostało złożone!\nDziękujemy i życzymy smacznego!\nDo zapłaty: " + price + "zł"), button);
+        VBox vbox = new VBox(new Text("Zamówienie zostało złożone!\nDziękujemy i życzymy smacznego!\nDo zapłaty: " + price + "zł\n"), button);
         vbox.setAlignment(Pos.CENTER);
         vbox.setPadding(new Insets(15));
 
