@@ -35,8 +35,6 @@ public class MainController {
     @FXML
     private ScrollPane scrollPaneBox;
     @FXML
-    private VBox isStudentBox;
-    @FXML
     private VBox pizzaBox;
     @FXML
     private VBox ingredientsBox;
@@ -192,13 +190,13 @@ public class MainController {
         setTotalPrize();
     }
 
-    private void addToScrollPaneBox(String pizza, BigDecimal priceOfPizza, String ingr){
+    private void addToScrollPaneBox(String pizza, BigDecimal priceOfPizza, String ingredients){
         String string = num.toString();
 
-        if(ingr.equals(""))
+        if(ingredients.equals(""))
             string += (". " + pizza + "\t" + priceOfPizza + "zł\n");
         else
-            string += (". " + pizza + "\t" + priceOfPizza + "zł\n\t" + ingr + "\t" + ingredientsSum + "zł\n");
+            string += (". " + pizza + "\t" + priceOfPizza + "zł\n\t" + ingredients + "\t" + ingredientsSum + "zł\n");
 
         textArea.appendText(string);
         scrollPaneBox.setContent(textArea);
