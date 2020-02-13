@@ -83,6 +83,8 @@ public class MainController {
 
     @FXML
     private void confirmOrderAction(){
+        clearScrollPaneBox();
+        new OrderStage();
     }
 
     @FXML
@@ -90,6 +92,7 @@ public class MainController {
         totalPrice.setText(totalSum + "zł");
     }
 
+    //reset order
     @FXML
     private void clearScrollPaneBox(){
         textArea.setText("");
