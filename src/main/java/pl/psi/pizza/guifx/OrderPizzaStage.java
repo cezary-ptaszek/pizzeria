@@ -9,9 +9,11 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class OrderStage {
+import java.math.BigDecimal;
 
-    public OrderStage(){
+public class OrderPizzaStage {
+
+    public OrderPizzaStage(BigDecimal price){
         Stage dialogStage = new Stage();
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.setTitle("Info");
@@ -20,7 +22,7 @@ public class OrderStage {
         Button button = new Button("OK");
         button.setOnAction(arg0 -> dialogStage.close());
 
-        VBox vbox = new VBox(new Text("Zamówienie zostało złożone?\n"), button);
+        VBox vbox = new VBox(new Text("Zamówienie zostało złożone!\nDziękujemy i życzymy smacznego!\nDo zapłaty: " + price + "zł"), button);
         vbox.setAlignment(Pos.CENTER);
         vbox.setPadding(new Insets(15));
 

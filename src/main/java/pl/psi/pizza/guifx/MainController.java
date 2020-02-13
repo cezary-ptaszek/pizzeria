@@ -66,6 +66,7 @@ public class MainController {
         ingredientsSum = new BigDecimal("0.0");
         textArea = new TextArea();
         textArea.setEditable(false);
+        textArea.setPrefWidth(291);
 
         addPizzaButton.setText("DODAJ DO\n ZAMÓWIENIA");
         addPizzaButton.textAlignmentProperty().set(TextAlignment.CENTER);
@@ -83,8 +84,13 @@ public class MainController {
 
     @FXML
     private void confirmOrderAction(){
+        if(textArea.getText().equals("")){
+            new OrderNothingStage();
+        }
+        else {
+            new OrderPizzaStage(totalSum);
+        }
         clearScrollPaneBox();
-        new OrderStage();
     }
 
     @FXML
